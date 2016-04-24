@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <form action="https://payment-stage.allpay.com.tw/AioHelper/GenCheckMacValue" method="post" target="_blank" novalidate="novalidate" enctype='application/json'>
+    MerchantID
+    <input type="text" name="MerchantID">
+    <br> MerchantTradeNo
+    <input type="text" name="MerchantTradeNo">
+    <br> MerchantTradeDate
+    <input type="text" name="MerchantTradeDate">
+    <br> PaymentType
+    <input type="text" name="PaymentType">
+    <br> TotalAmount
+    <input type="text" name="TotalAmount">
+    <br>TradeDesc
+    <input type="text" name="TradeDesc">
+    <br> ItemName
+    <input type="text" name="ItemName">
+    <br> ReturnURL
+    <input type="text" name="ReturnURL">
+    <br> ChoosePayment
+    <input type="text" name="ChoosePayment">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <form action="https://payment-stage.allpay.com.tw/Cashier/AioCheckOut/V2" method="post" target="_blank" novalidate="novalidate">
+    MerchantID
+    <input type="text" name="MerchantID">
+    <br> MerchantTradeNo
+    <input type="text" name="MerchantTradeNo">
+    <br> MerchantTradeDate
+    <input type="text" name="MerchantTradeDate">
+    <br> PaymentType
+    <input type="text" name="PaymentType">
+    <br> TotalAmount
+    <input type="text" name="TotalAmount">
+    <br>TradeDesc
+    <input type="text" name="TradeDesc">
+    <br> ItemName
+    <input type="text" name="ItemName">
+    <br> ReturnURL
+    <input type="text" name="ReturnURL">
+    <br> ChoosePayment
+    <input type="text" name="ChoosePayment">
+    <br> CheckMacValue
+    <input type="text" name="CheckMacValue">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>
