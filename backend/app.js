@@ -1,13 +1,16 @@
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
+var cheerio = require('cheerio');
 app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // 這個number變數是訂單變數
-var number = "adsf23fadse23w32f";
+var number = "adsf23fadse23w32f3q";
 var testurl = "http://60b6fbe1.ngrok.io/e"
 
 // 產生檢查碼的表單
@@ -54,14 +57,19 @@ request.post({
     request.post({
       url: 'https://payment-stage.allpay.com.tw/Cashier/AioCheckOut/V2',
       formData: formData2
-    }, function optionalCallback(err, httpResponse, body2) {
+    }, function optionalCallback(err, httpResponse, html) {
       if (err) {
         return console.error('upload failed:', err);
       }
       // console.log(httpResponse);
 
       var text = "https://payment-stage.allpay.com.tw/Cashier/AioCheckOut/V2";
-      res.send(body2);
+      $ = cheerio.load(html);
+       var url2 = $("a").attr('href');
+       var url3 ="https://payment-stage.allpay.com.tw"
+       var url4 = url3 + url2;
+      console.log(url4);
+      res.send(html);
 
     });
 
