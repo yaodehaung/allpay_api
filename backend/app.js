@@ -1,11 +1,14 @@
 var express = require('express');
 var request = require('request');
+var bodyParser = require('body-parser');
 app = express();
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // 這個number變數是訂單變數
-var number = "adsf23fadse23we234";
-var testurl = "http://62647842.ngrok.io/e"
+var number = "adsf23fadse23w32f";
+var testurl = "http://60b6fbe1.ngrok.io/e"
 
 // 產生檢查碼的表單
 var formData = {
